@@ -1,4 +1,4 @@
-package silverassist.reportcommand;
+package silverassist.silverassist;
 
 import com.sun.tools.javac.Main;
 import net.dv8tion.jda.api.JDA;
@@ -7,21 +7,25 @@ import net.dv8tion.jda.api.entities.Activity;
 import net.dv8tion.jda.api.requests.GatewayIntent;
 import org.bukkit.command.PluginCommand;
 import org.bukkit.plugin.java.JavaPlugin;
-import silverassist.reportcommand.command.Report;
+import silverassist.silverassist.command.Report;
 
 import javax.security.auth.login.LoginException;
 
-public final class ReportCommand extends JavaPlugin {
+public final class SilverAssist extends JavaPlugin {
     public static JDA jda = null;
     private static String BOT_TOKEN = null;
+    public static String ch_report = null;
     public Main plugin;
     @Override
     public void onEnable() {
         // Plugin startup logic
         this.saveDefaultConfig();
         BOT_TOKEN = (String)this.getConfig().get("token");
+        ch_report = (String)this.getConfig().get("ch_report");
         startBot();
-        PluginCommand command = getCommand("text");
+
+        //レポートコマンド
+        PluginCommand command = getCommand("report");
         if(command != null)command.setExecutor(new Report());
     }
 
@@ -35,7 +39,7 @@ public final class ReportCommand extends JavaPlugin {
         try {
             jda = JDABuilder.createDefault(BOT_TOKEN, GatewayIntent.GUILD_MESSAGES)
                     .setRawEventsEnabled(true)
-                    .setActivity(Activity.playing("CONAN!"))
+                    .setActivity(Activity.playing("仕事中！！"))
                     .build();
         } catch (LoginException e) {
             e.printStackTrace();

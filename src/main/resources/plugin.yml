@@ -1,11 +1,9 @@
-name: ReportCommand
+name: SilveraAssist
 version: '${version}'
-main: silverassist.reportcommand.ReportCommand
+main: silverassist.silverassist.SilverAssist
 api-version: 1.18
 
 commands:
-  text:
-    description: てすとぉ
-    permission: op
-    permission-message: けんげんないよぉ
-    usage: /text <文章>
+  report:
+    description: reportコマンド
+    usage: /report <件名> <本文(半角スペース禁止)>
