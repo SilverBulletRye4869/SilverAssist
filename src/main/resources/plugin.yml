@@ -1,0 +1,11 @@
+name: ReportCommand
+version: '${version}'
+main: silverassist.reportcommand.ReportCommand
+api-version: 1.18
+
+commands:
+  text:
+    description: てすとぉ
+    permission: op
+    permission-message: けんげんないよぉ
+    usage: /text <文章>
