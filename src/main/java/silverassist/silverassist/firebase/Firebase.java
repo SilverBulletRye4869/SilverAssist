@@ -19,7 +19,7 @@ public class Firebase {
     public static void FirebaseInit() throws IOException {
 
         //メモ; ユーザ名！直す
-     直す InputStream serviceAccount = new FileInputStream("C:\\Users\\<name>\\OneDrive\\デスクトップ\\Minecraft\\server\\1.18.1\\punisherlist-364008-3513ed286048.json");
+      InputStream serviceAccount = new FileInputStream("C:\\Users\\<name>\\OneDrive\\デスクトップ\\Minecraft\\server\\1.18.1\\punisherlist-364008-3513ed286048.json");
         GoogleCredentials credentials = GoogleCredentials.fromStream(serviceAccount);
         FirebaseOptions options = new FirebaseOptions.Builder()
                 .setCredentials(credentials)
