@@ -8,6 +8,3 @@ commands:
     description: reportコマンド
     usage: /report <件名> <本文(半角スペース禁止)>
 
-  hane:
-    description: 人事コマンド
-    usage: /hane <ban/pardon> <プレイヤー> <理由>

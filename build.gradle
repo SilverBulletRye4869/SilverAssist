@@ -30,7 +30,7 @@ repositories {
 dependencies {
     compileOnly 'org.spigotmc:spigot-api:1.18.1-R0.1-SNAPSHOT'
     implementation("net.dv8tion:JDA:$jdaVersion")
-    implementation 'com.google.firebase:firebase-admin:9.0.0'
+
 
 
 

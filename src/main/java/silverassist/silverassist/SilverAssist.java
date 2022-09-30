@@ -7,16 +7,13 @@ import net.dv8tion.jda.api.entities.Activity;
 import net.dv8tion.jda.api.requests.GatewayIntent;
 import org.bukkit.command.PluginCommand;
 import org.bukkit.plugin.java.JavaPlugin;
-import silverassist.silverassist.command.Hane;
 import silverassist.silverassist.command.Report;
 
 
 
 import javax.security.auth.login.LoginException;
 
-import java.io.IOException;
 
-import static silverassist.silverassist.firebase.Firebase.FirebaseInit;
 
 public final class SilverAssist extends JavaPlugin {
     public static JDA jda = null;
@@ -30,19 +27,12 @@ public final class SilverAssist extends JavaPlugin {
         this.saveDefaultConfig();
         BOT_TOKEN = (String)this.getConfig().get("token");
         ch_report = (String)this.getConfig().get("ch_report");
-        startBot();
-        try {
-            FirebaseInit();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
 
+        startBot();
         //レポートコマンド
         PluginCommand command = getCommand("report");
         if(command != null)command.setExecutor(new Report());
-        //はねBANコマンド
-        command = getCommand("hane");
-        if(command != null)command.setExecutor(new Hane());
+
     }
 
     @Override
@@ -51,7 +41,7 @@ public final class SilverAssist extends JavaPlugin {
         jda.shutdownNow();
     }
 
-    private static void startBot(){
+    private void startBot(){
         try {
             jda = JDABuilder.createDefault(BOT_TOKEN, GatewayIntent.GUILD_MESSAGES)
                     .setRawEventsEnabled(true)
